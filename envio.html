@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Seleção de Redirecionamento</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0; padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    max-width: 480px;
+    width: 100%;
+  }
+  h1 {
+    text-align: center;
+    color: #064a6e;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+    color: #333;
+  }
+  select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1.8px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  select:focus {
+    outline: none;
+    border-color: #069cc2;
+  }
+  button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    background-color: #069cc2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #037a99;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Escolha seu caminho</h1>
+  <form id="redirectForm">
+    <label for="eixo">Eixo:</label>
+    <select id="eixo" required>
+      <option value="" disabled selected>-- Selecione o Eixo --</option>
+      <option value="tec">Tecnologia e Comunicação</option>
+      <option value="gestao">Gestão e Negócios</option>
+    </select>
+
+    <label for="curso">Curso Técnico:</label>
+    <select id="curso" required disabled>
+      <option value="" disabled selected>-- Selecione o Curso --</option>
+    </select>
+
+    <label for="envio">Tipo de Envio:</label>
+    <select id="envio" required disabled>
+      <option value="" disabled selected>-- Selecione o Tipo de Envio --</option>
+      <option value="apoio">Enviar Apoio</option>
+      <option value="plano">Enviar Plano de Aula</option>
+      <option value="rendimento">Enviar Registros de Rendimento</option>
+      <option value="projetos">Enviar Doc. Projetos</option>
+    </select>
+
+    <button type="submit">Ir</button>
+  </form>
+</div>
+
+<script>
+  const eixoSelect = document.getElementById('eixo');
+  const cursoSelect = document.getElementById('curso');
+  const envioSelect = document.getElementById('envio');
+
+  const cursosPorEixo = {
+    'tec': [
+      {value: 'adm', text: 'Administração de Empresas'},
+      {value: 'dev', text: 'Desenvolvimento de Sistemas'},
+      {value: 'vendas', text: 'Vendas'}
+    ],
+    'gestao': [
+      {value: 'adm', text: 'Administração de Empresas'},
+      {value: 'dev', text: 'Desenvolvimento de Sistemas'},
+      {value: 'vendas', text: 'Vendas'}
+    ]
+  };
+
+  eixoSelect.addEventListener('change', () => {
+    const eixo = eixoSelect.value;
+    cursoSelect.innerHTML = '<option value="" disabled selected>-- Selecione o Curso --</option>';
+    envioSelect.value = "";
+    envioSelect.disabled = true;
+
+    if (eixo && cursosPorEixo[eixo]) {
+      cursosPorEixo[eixo].forEach(curso => {
+        const option = document.createElement('option');
+        option.value = curso.value;
+        option.textContent = curso.text;
+        cursoSelect.appendChild(option);
+      });
+      cursoSelect.disabled = false;
+    } else {
+      cursoSelect.disabled = true;
+    }
+  });
+
+  cursoSelect.addEventListener('change', () => {
+    envioSelect.value = "";
+    envioSelect.disabled = false;
+  });
+
+  const urlMap = {
+    'tec': {
+      'dev': {
+        'apoio': 'https://drive.google.com/drive/folders/17l15UfpOMk9wbU1wh2CzW86jt3AUOIAt?usp=sharing',
+        'plano': 'https://drive.google.com/drive/folders/1Sp6WI-sFVKjq7eZXb6mhhYkopcPrGZqF?usp=sharing',
+        'rendimento': 'https://drive.google.com/drive/folders/1oP9IljIxfLsKFQgkX42LaiGntSTZSX7i?usp=sharing',
+        'projetos': 'https://drive.google.com/drive/folders/1O3ogr7XhMxUFA41IONN4S9l_gQ_jhRqk?usp=sharing'
+      }
+    },
+    'gestao': {
+      'adm': {
+        'apoio': 'https://drive.google.com/drive/folders/15N7wDUJi3TREtYQ-JUR5OYX68b12AGoZ?usp=sharing',
+        'plano': 'https://drive.google.com/drive/folders/19EOqb_oMrHis5hBQ5kUAlx8CRFk62DDV?usp=sharing',
+        'rendimento': 'https://drive.google.com/drive/folders/1IAfC2XCRJyU_sw-r2cm2J6sjpS3ajMMN?usp=sharing',
+        'projetos': 'https://drive.google.com/drive/folders/18CXk8_Hfsaqj_63rg_ygE0yfjRHMlN-j?usp=sharing'
+      },
+      'vendas': {
+        'apoio': 'https://drive.google.com/drive/folders/15N7wDUJi3TREtYQ-JUR5OYX68b12AGoZ?usp=sharing',
+        'plano': 'https://drive.google.com/drive/folders/1fmRFyn9Ff9suS6Wpjhx4Ulw9NksEd_w1?usp=sharing',
+        'rendimento': 'https://drive.google.com/drive/folders/1nC0z0mvsZAirPrZyXNvvmZ2IyzxIHBe8?usp=sharing',
+        'projetos': 'https://drive.google.com/drive/folders/1p3Cn392gJxmJXPj0zhmIefDcoivOQkj0?usp=sharing'
+      }
+    }
+  };
+
+  document.getElementById('redirectForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const eixo = eixoSelect.value;
+    const curso = cursoSelect.value;
+    const envio = envioSelect.value;
+
+    if (!eixo || !curso || !envio) {
+      alert('Por favor, selecione todas as opções.');
+      return;
+    }
+
+    if (urlMap[eixo] && urlMap[eixo][curso] && urlMap[eixo][curso][envio]) {
+      window.location.href = urlMap[eixo][curso][envio];
+    } else {
+      alert('Nenhum link configurado para esta combinação.');
+    }
+  });
+</script>
+
+</body>
+</html>
