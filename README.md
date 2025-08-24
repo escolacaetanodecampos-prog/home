@@ -9,7 +9,6 @@ Uma página simples em HTML que serve como ponto de acesso rápido a sites exter
 Este projeto tem como objetivo fornecer uma página inicial minimalista contendo links para sites como Google, YouTube, GitHub e Twitter. É uma solução prática para quem deseja acessar rapidamente esses sites sem precisar digitar seus endereços manualmente.
 
 ## 🧪 Tecnologias Utilizadas
-
 - HTML5
 - CSS3
 
