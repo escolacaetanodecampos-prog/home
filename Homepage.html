@@ -1,9 +1,3 @@
-﻿<!// ==UserScript==>
-<!// @name Acesso 2D>
-<!// @namespace Script Runner Pro>
-<!// @match *://*/*>
-<!// @grant none>
-<!// ==/UserScript==>
 <!DOCTYPE html>
    <head>
     <html lang="pt-BR">
@@ -42,67 +36,203 @@ table.tabela{
     width:100%;
 }
 
-table.tabela tr{
-    text-align:center;
-}
+  .button {
+        border: 2px solid transparent;
+        box-sizing: border-box;
+        background-color: rgba(64, 87, 109, 0.07);
+        border-radius: 4px;
+        color: #0e1318;
+        cursor: pointer;
+        display: inline-flex;
+        height: 40px;
+        margin: 0;
+        max-width: 100%;
+        min-width: 80px;
+        width: 100%;
+        padding: 0 6px;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        outline-offset: 2px;
+        transition: background-color 0.2s;
+    }
+    .button:hover {
+        background-color: rgba(57, 76, 96, .15);
+    }
+    .button:active {
+        background-color: rgba(53, 71, 90, .2);
+    }
 
+    .submit-button {
+        border: 2px solid transparent;
+        box-sizing: border-box;
+        background-color: #7d2ae8;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-flex;
+        height: 40px;
+        margin: 0;
+        max-width: 100%;
+        min-width: 80px;
+        width: 100%;
+        padding: 0 6px;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        outline-offset: 4px;
+        transition: background-color 0.2s;
+    }
+    .submit-button:hover {
+        background-color: #8d39fa;
+    }
+    .submit-button:active {
+        background-color: #6718cf;
+    }
 
-table.tabela.text-left tr{
-    text-align:left;
-}
+    .button-text {
+        font-size: calc(14px * var(--rfso, var(--bfso, 1)));
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 0 8px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
 
-table.tabela.tabela-borda tr{
-    margin-left:15px;
-    margin-right:15px;
-    width: 100%;
-}
+    .a-link:visited {
+        color: rgba(14, 19, 24, 0.7)
+    }
+    .a-link {
+        text-decoration: underline;
+        color: rgba(14, 19, 24, 0.7)
+    }
+    .a-link:hover {
+        color: #7d2ae8;
+    }
 
-table.tabela.tabela-borda td{
-    border:2px solid #757575 !important;
-}
+    @keyframes spin {
+        from {
+            transform: rotate(0turn);
+        }
 
-.menu-scroll-float ul{
-	margin-left:15px;
-    	margin-right:15px;
-    	width: 100%;
-}
+        to {
+            transform: rotate(1turn);
+        }
+    }
 
-.menu-scroll-float li{
-    display:block;
-}
+    @supports selector(:focus-visible) {
+        .radio-button-input:focus-visible + .radio-button {
+            outline: auto;
+        }
 
-.menu-scroll-float li a{
-    font-size: 14px;
-	color:black;
-}
+        .footer-pill-primary:focus-visible > .footer-pill-primary-background::after {
+            transform: translateX(110%);
+        }
 
-.menu-scroll-float li.secao-atual a{
-	color:#ff212f;
-    font-weight: bold;
-}
+        .footer-pill-primary:focus-visible > .footer-pill-primary-background {
+            opacity: 1;
+        }
 
-.button-scroll-float li{
-    display:block;
-    text-align:center;
-}
+        .footer-pill-primary:focus-visible > .footer-pill-primary-background .animation-container {
+            animation-play-state: running;
+        }
+    }
 
-. input{
-    display-type: submit;
-    height: 50px;
-    width: 100%;
-    margin: 5px 0;
-    border-radius: 30px;
-    border: 1px solid black;
-    font-size: 16pt;
-    padding: 10px 20px;
-    box-sizing: content-box;
-}
+    @supports not selector(:focus-visible) {
+        .radio-button-input:focus + .radio-button {
+            outline: auto;
+        }
 
-div#corpo-form{
-    margin-left:15px;
-    margin-right:15px;
-    width: 100%;
-}
+        .footer-pill-primary:focus > .footer-pill-primary-background::after {
+            transform: translateX(110%);
+        }
+
+        .footer-pill-primary:focus > .footer-pill-primary-background {
+            opacity: 1;
+        }
+
+        .footer-pill-primary:focus > .footer-pill-primary-background .animation-container {
+            animation-play-state: running;
+        }
+    }
+
+    /* stylelint-disable-next-line media-feature-name-disallowed-list */
+    @media only screen and (max-width: 600px) {
+        .modal-backdrop {
+            background-color: rgba(14, 19, 24, 0.45);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .report-form-modal {
+            width: 100%;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px 8px 0 0;
+            transform: translate3d(0, 33%, 0);
+        }
+
+        .report-form-modal.active {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .form-content {
+            margin: 16px;
+        }
+
+        .form-buttons {
+            display: grid;
+            grid-gap: 8px;
+            grid-template-columns: 1fr;
+        }
+
+        .submit-button {
+            order: -1;
+        }
+
+        @supports (padding: env(safe-area-inset-bottom)) {
+            .footer-container {
+                padding: 6px 6px calc(6px + env(safe-area-inset-bottom)) 6px;
+            }
+
+            .form-content {
+                margin: 16px 16px calc(16px + env(safe-area-inset-bottom)) 16px;
+            }
+        }
+    }
+    @media (prefers-reduced-motion) {
+        .report-form-modal, .report-form-modal.active {
+            transition-property: opacity, visibility;
+            transform: translate3d(0, calc(-100% + 8px), 0);
+        }
+        @media only screen and (max-width: 600px) {
+            .report-form-modal, .report-form-modal.active {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        .animation-container {
+            animation-play-state: paused !important;
+        }
+        .footer-pill-primary-background::after {
+            transform: translateX(0);
+            opacity: 0;
+            transition: opacity 0.7s;
+        }
+        .footer-pill-primary-background > svg {
+            display: none;
+        }
+    }
   </style>
   </head>
   <body>
@@ -138,11 +268,14 @@ div#corpo-form{
  </div>
   <div>
 <legend class="titulo__areas ancora:center" style="font-size:26px;color: #000000bff;font-weight: bold;text-transform: uppercase;text-align:center" data-id="curriculo">
-<center>Bem vindo!<p></p><form action="http://google.com"><input type="submit" value="Ensino Profissionalizante"><p></p><input type="submit" value="Outros Acessos"><p></p><input type="submit" value="Site" <p=""><p></p>
+<center>Bem vindo!<p></p>
+	
+	<div class="container" style="touch-action: pan-x pan-y pinch-zoom; width: 457.939px; height: 57.2129px; transform: translate(177.03px, 530.973px);"><div style="width: 457.939px; height: 57.2129px; transform: scale(1, 1); transform-origin: 0px 0px;"><div class="DF_utQ _682gpw _0xkaeQ" style="touch-action: pan-x pan-y pinch-zoom; width: 457.939px; height: 57.2129px; transform: translate(0px, 7.4607e-14px);"><div class="Zp7NQw"><div class="a26Xuw"><div class="fbzKiw" style="background: rgb(23, 126, 128);"></div></div><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px; height: 57.2129px; width: 457.939px; pointer-events: none; transform: scale(1);"></div></div></div><div class="DF_utQ _682gpw _0xkaeQ" style="touch-action: pan-x pan-y pinch-zoom; width: 397.244px; height: 27.4204px; transform: translate(30.3475px, 14.8963px);"><div class="aF9o6Q _0yZ6Qg" style="writing-mode: horizontal-tb; width: 424.347px; height: 29.2912px; transform: scale(0.936131, 0.936131); transform-origin: 0px 0px;"><div lang="en" class="AdBbhQ hGbcYA rLWGlw _7rUwsA" style="transform: translate(0.615632px, -1.35439px);"><p class="cgHgbA pYZEjA Xp24Nw PanoWQ" style="font-family: &quot;YAD1fewp_mA 0&quot;, auto; --cAuMqQ: 24.6253px; color: rgb(243, 239, 233); line-height: 32px; letter-spacing: 0.05em; --pY_8zA: 0; text-transform: uppercase; --oJepFA: 0; --uYCVzQ: none; list-style-type: none;"><a href="#page-0" target="_self" draggable="false" rel="noopener nofollow" class="OYPEnA" style="font-size: 1em; font-weight: 400; font-style: normal; color: rgb(243, 239, 233); font-kerning: none; text-decoration: underline;">cursos técnicos</a><span class="OYPEnA L7Ipcg" style="font-size: 1em; font-weight: 400; font-style: normal; color: rgb(243, 239, 233); font-kerning: none; text-decoration: none;"> </span></p></div></div></div></div></div><form action="http://google.com"><input type="submit" value="Ensino Profissionalizante"><p></p><input type="submit" value="Outros Acessos"><p></p><input type="submit" value="Site" <p=""><p></p>
 </form>
 </center></legend>
 <br>
 <br>
 
 </div></body>
+
 </html>
